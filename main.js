@@ -1,82 +1,46 @@
-function Gameboard() {
-  const rows = 2;
-  const columns = 2;
-  const board = [];
-
-  for (let i = 0; i < rows; i++) {
-    board[i] = [];
-    for (let j = 0; j < columns; j++) {
-      board[i].push(Cell());
-    }
-  }
-
-  const getBoard = () => board;
-
-  const dropToken = (column, player) => {
-    const availableCells = board.filter((row) => row[column].getValue() === 0).map(row => row[column]);
-    if (!availableCells.length) return;
-
-    const lowestRow = availableCells.length - 1;
-    board[lowestRow][column].addToken(player);
-  };
-
-  const printBoard = () => {
-    const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()));
-    console.log(boardWithCellValues);
-  }
-
-  return { getBoard, dropToken, printBoard };
-}
-
-function Cells() {
-  let value = 0;
-
-  const addToken = (player) => {
-    value = player;
-  };
-
-  const getValue = () => value;
-
-  return { addToken, getValue };
-}
-
-function GameController(playerOneName = "Player One", playerTwoName = "Player Two") {
-  const board = Gameboard();
-
-  const players = [
-    {
-      name: playerOneName,
-      token: 1
-    },
-    {
-      name: playerTwoName,
-      token: 2
-    }
+const Gameboard = (() => {
+  let gameboard = [
+    "", "", "",
+    "", "", "",
+    "", "", ""
   ];
 
-  let activePlayer = players[0];
+  const display = () => {
+    let htmlBoard = "";
+    gameboard.forEach((square, index) => {
+      htmlBoard += `<div class="square" id="square${index}">${square}</div>`
+    })
+    document.querySelector('#gameboard').innerHTML = htmlBoard;
+    const squares = document.querySelectorAll('.square');
+    console.log(squares);
+  }
+  return { display };
+})();
 
-  const switchPLayerTurn = () => {
-    activePlayer = activePlayer === players[0] ? players[1] : players[0];
-  };
+const createPlayer = (name, marker) => {
+  return { name, marker }
+}
 
-  const getActivePlayer = () => activePlayer;
+const Game = (() => {
+  let players = [];
+  let currentPlayer;
+  let gameOver;
 
-  const printNewRound = () => {
-    board.printBoard();
-    console.log(`${getActivePlayer().name}'s turn.`);
-  };
+  const start = () => {
+    players = [
+      createPlayer(document.querySelector('#palyer1').value, "X"),
+      createPlayer(document.querySelector('#player2').value, "O")
+    ]
+    currentPlayer = 0;
+    gameOver = false;
+    Gameboard.display();
+  }
+  return { start }
+})();
 
-  const playRound = (column) => {
-    console.log(`Dropping ${getActivePlayer().name}'s token into column ${column}...`);
-    board.dropToken(column, getActivePlayer().token);
-
-    switchPLayerTurn();
-    printNewRound();
-  };
-  printNewRound();
-
-  return { getActivePlayer, playRound }
-};
-
-const game = GameController();
+const btnStart = document.querySelector('#btnStart');
+btnStart.addEventListener('click', function () {
+  const gameboardEl = document.querySelector('#gameboard');
+  gameboardEl.classList.add('active');
+  Game.start();
+})

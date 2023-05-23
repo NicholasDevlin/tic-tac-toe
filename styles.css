@@ -6,3 +6,40 @@
   box-sizing: border-box;
   font-family: 'Pangolin', cursive;
 }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.gameboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 300px;
+  width: 300px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+.gameboard.active {
+  background-color: #000;
+}
+
+.square {
+  border: 1px solid #fff;
+  display: flex;
+  flex-wrap: wrap;
+  width: 32%;
+  height: 32%;
+  text-align: center;
+  font-size: 80px;
+  background-color: #fff;
+}
+
+footer {
+  text-align: center;
+}

@@ -10,17 +10,30 @@
 </head>
 
 <body>
-  <header>
-    <div>
-      <h1>Tic Tac Toe</h1>
-    </div>
-  </header>
-  <main>
+  <div class="content">
+    <header>
+      <div>
+        <h1>Tic Tac Toe</h1>
+      </div>
+    </header>
 
-  </main>
+    <main>
+      <div class="gameboard" id="gameboard"></div>
+      <div id="controls">
+        <input type="text" id="palyer1" placeholder="Player one">
+        <input type="text" id="player2" placeholder="Player two">
+        <button id="btnStart">Start</button>
+        <button id="btnRestart">Restart</button>
+      </div>
+      <div id="message"></div>
+      <div id="resultDisplay"></div>
+    </main>
+  </div>
+
   <footer>
     <p>Copyright © NicholasDevlin</p>
   </footer>
+  <script src="main.js"></script>
 </body>
 
 </html>

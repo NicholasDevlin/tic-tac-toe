@@ -44,4 +44,24 @@ body {
 
 footer {
   text-align: center;
+  align-items: center;
+  height: 30px;
+}
+
+footer p {
+  display: inline;
+  text-align: center;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+footer img {
+  width: 1rem;
+  display: inline;
+  cursor: pointer;
+  transition: 1s;
+}
+
+footer img:hover {
+  rotate: 360deg;
 }

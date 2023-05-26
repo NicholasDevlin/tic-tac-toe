@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Pangolin', cursive;
+}
+
+header {
+  margin: 20px 0 0 20px;
 }
 
 body {
@@ -15,11 +20,12 @@ body {
 }
 
 main {
-  background-color: #92ec3f;
   align-items: center;
   justify-content: center;
-  padding: 50px;
   display: flex;
+  margin: 0 20%;
+  border: #000 solid 1px;
+  border-radius: 15px;
   flex-direction: column;
 }
 
@@ -27,8 +33,55 @@ main {
   display: flex;
   max-width: 500px;
   min-width: 450px;
+  margin-top: 25px;
   margin-bottom: 50px;
-  background-color: #000;
+  justify-content: space-between;
+}
+
+.input input {
+  border-radius: 10px;
+  border: #838383 1px solid;
+  padding-left: 5px;
+}
+
+.btn {
+  align-items: center;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  padding: 0 16px;
+  position: relative;
+  transition: box-shadow .15s, transform .15s;
+  font-size: 18px;
+}
+
+.btn:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.container {
+  background-color: #077b8a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 350px;
 }
 
 .gameboard {
@@ -38,7 +91,7 @@ main {
   align-content: space-between;
   height: 300px;
   width: 300px;
-  background-color: #fff;
+  background-color: #077b8a;
 }
 
 .gameboard.active {
@@ -46,19 +99,20 @@ main {
 }
 
 .square {
-  border: 1px solid #fff;
   display: flex;
   flex-wrap: wrap;
-  width: 32%;
-  height: 32%;
+  width: 32.5%;
+  height: 32.5%;
   justify-content: center;
   cursor: pointer;
   text-align: center;
+  font-family: 'Inter', sans-serif;
   font-size: 80px;
-  background-color: #fff;
+  background-color: #077b8a;
 }
 
 .restart {
+  margin: 20px 0;
   display: flex;
   justify-content: center;
 }

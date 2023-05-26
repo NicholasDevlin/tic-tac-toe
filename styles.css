@@ -16,15 +16,19 @@ body {
 
 main {
   background-color: #92ec3f;
-  padding: 50px;
-  display: grid;
+  align-items: center;
   justify-content: center;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
+  display: flex;
   max-width: 500px;
   min-width: 450px;
   margin-bottom: 50px;
+  background-color: #000;
 }
 
 .gameboard {
@@ -32,10 +36,8 @@ main {
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
-  max-height: 350px;
-  min-height: 300px;
-  max-width: 350px;
-  min-width: 300px;
+  height: 300px;
+  width: 300px;
   background-color: #fff;
 }
 
@@ -54,6 +56,11 @@ main {
   text-align: center;
   font-size: 80px;
   background-color: #fff;
+}
+
+.restart {
+  display: flex;
+  justify-content: center;
 }
 
 footer {

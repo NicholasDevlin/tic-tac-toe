@@ -1,9 +1,18 @@
+let messageDisplay = document.querySelector('#message');
+
 const displayController = (() => {
   const displayMessage = (message) => {
-    document.querySelector('#message').innerHTML = message;
+    messageDisplay.innerHTML = message;
+    messageDisplay.classList.add('active');
   }
   return { displayMessage }
 })();
+
+function deactive() {
+  messageDisplay.addEventListener('click', () => {
+    messageDisplay.classList.remove('active');
+  });
+}
 
 const Gameboard = (() => {
   let gameboard = [
@@ -120,6 +129,7 @@ const btnRestart = document.querySelector('#btnRestart');
 btnRestart.addEventListener('click', function () {
   Game.restart();
   Game.start();
+  messageDisplay.classList.remove('active');
 })
 
 const btnStart = document.querySelector('#btnStart');
@@ -128,3 +138,5 @@ btnStart.addEventListener('click', function () {
   gameboardEl.classList.add('active');
   Game.start();
 })
+
+deactive();
